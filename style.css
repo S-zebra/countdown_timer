@@ -40,6 +40,6 @@
 	font-size: 4rem;
 }
 
-.tInd {
-	font-size: 8rem;
+.js-hidden {
+	visibility: hidden;
 }

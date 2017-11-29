@@ -1,5 +1,5 @@
 var seconds = 0;
-var timerObject;
+var timerObject, blinkTimer;
 
 var startButton, stopButton, resetButton, indicators;
 var minutesLabel, collonLabel, secondsLabel;
@@ -9,6 +9,7 @@ window.addEventListener("load", function (e) {
   stopButton = $("#stopButton");
   resetButton = $("#resetButton");
   minutesLabel = $("#minutesLabel");
+  collonLabel = $("#collonLabel");
   secondsLabel = $("#secondsLabel");
 
   startButton.bind("click", startCountdown);
@@ -29,41 +30,33 @@ function setRemainTime(tag) {
   seconds += absValue;
   if (seconds <= 0) {
     seconds = 0;
-    //$(".js-buttons-minus").attr("disabled", "disabled");
     startButton.attr("disabled", "disabled");
   } else {
     startButton.removeAttr("disabled");
   }
 }
 
-function toggleIndicatorsVisibility(hidden) {
-  if (hidden) {
-    $(".tInd").addClass("js-hidden");
-  } else {
-    $(".tInd").removeClass("js-hidden")
-  }
-}
-
 function startCountdown() {
   timerObject = setInterval(onTimerTick, 1000);
+  blinkTimer = setInterval(toggleIndicatorsVisibility, 500);
   startButton.attr("disabled", "disabled");
   stopButton.removeAttr("disabled");
 }
 
-function stopCountdown() {
-  clearInterval(timerObject);
-  updateTime();
-  prepareForRestart();
-}
-
 function onTimerTick() {
   if (seconds == 0) {
-    clearInterval(timerObject);
-    prepareForRestart();
+    stopCountdown();
   } else {
     seconds--;
     updateTime();
-    toggleIndicatorsVisibility(seconds % 2 == 0);
+  }
+}
+
+function toggleIndicatorsVisibility() {
+  if (collonLabel.hasClass("js-hidden")) {
+    collonLabel.removeClass("js-hidden");
+  } else {
+    collonLabel.addClass("js-hidden");
   }
 }
 
@@ -73,8 +66,19 @@ function updateTime() {
   document.title = minutesLabel.text() + ":" + secondsLabel.text();
 }
 
-function resetTime() {
+function stopCountdown() {
+  stopTimers();
+  updateTime();
+  prepareForRestart();
+}
+
+function stopTimers() {
   clearInterval(timerObject);
+  clearInterval(blinkTimer);
+}
+
+function resetTime() {
+  stopTimers();
   seconds = 0;
   updateTime();
   startButton.attr("disabled", "disabled");
