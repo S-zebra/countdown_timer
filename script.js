@@ -46,6 +46,7 @@ function startCountdown() {
 function onTimerTick() {
   if (seconds == 0) {
     stopCountdown();
+    stopButton.attr("disabled", "disabled");
   } else {
     seconds--;
     updateTime();
@@ -68,9 +69,7 @@ function updateTime() {
 
 function stopCountdown() {
   stopTimers();
-  updateTime();
   collonLabel.removeClass("js-hidden");
-  stopButton.attr("disabled", "disabled");
 }
 
 function stopTimers() {
