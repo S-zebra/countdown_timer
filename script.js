@@ -69,7 +69,8 @@ function updateTime() {
 function stopCountdown() {
   stopTimers();
   updateTime();
-  prepareForRestart();
+  collonLabel.removeClass("js-hidden");
+  stopButton.attr("disabled", "disabled");
 }
 
 function stopTimers() {
