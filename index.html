@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>カウントダウン タイマー</title>
+
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
+    crossorigin="anonymous">
+
+  <script type="text/javascript" src="./script.js"></script>
+</head>
+
+<body>
+
+  <div class="centered">
+    <div class="timelabel-containers">
+      <div id="minutesLabel" class="timelabel js-timelabel">0</div>
+      <button type="button" id="minus1MinButton" data-time-dir="minus" data-time-value="60" class="btn js-settime js-buttons-minus">-1分</button>
+      <button type="button" id="minus3MinButton" data-time-dir="plus" data-time-value="60"class="btn js-settime js-buttons-plus">+1分</button>
+    </div>
+    <div id="collonLabel" class="timelabel-containers timelabel collon js-timeindicator">:</div>
+    <div class="timelabel-containers">
+      <div id="secondsLabel" class="timelabel js-timelabel">00</div>
+      <div>
+        <button type="button" id="minus10SecButton" data-time-dir="minus" data-time-value="10" class="btn js-settime js-buttons-minus">-10秒</button>
+        <button type="button" id="plus10SecButton" data-time-dir="plus" data-time-value="10" class="btn js-settime js-buttons-plus">+10秒</button>
+      </div>
+    </div>
+    <!--<span id="secInd"  class="tInd"></span>-->
+  </div>
+  <div id="elapsedTimeBox">
+  </div>
+  <div class="centered buttoncontainer">
+    <!-- +1, +5, +10min, +5, +10sec-->
+    <button type="button" id="resetButton" class="btn btn-lg btn-secondary controller">Reset</button>
+    <button type="button" id="stopButton" class="btn btn-lg btn-secondary controller" disabled>Stop</button>
+    <button type="button" id="startButton" class="btn btn-lg btn-primary controller" disabled>Start</button>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

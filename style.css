@@ -1,0 +1,45 @@
+@charset 'utf-8';
+* {
+	font-family: "Verdana", "Meiryo", "HiraginoSans-W3", "Arial", sans-serif;
+	color: #2a2a2a;
+}
+
+.centered {
+	text-align: center;
+	margin: 0;
+}
+
+.timelabel-containers {
+	display: inline-block;
+}
+
+.timelabel {
+	font-size: 28rem;
+	line-height: 95%;
+	letter-spacing: -0.05em;
+}
+
+.collon {
+	position: relative;
+	top: -0.2em;
+}
+
+.buttoncontainer {
+	position: relative;
+	top: 0rem;
+	clear: both;
+}
+
+.btn {
+	margin: 10px;
+	cursor: pointer;
+	font-family: -apple-system, "Segoe UI", "Meiryo", sans-serif;
+}
+
+.controller {
+	font-size: 4rem;
+}
+
+.tInd {
+	font-size: 8rem;
+}
