@@ -43,10 +43,15 @@ function startCountdown() {
   stopButton.removeAttr("disabled");
 }
 
+function onStopbuttonClicked() {
+  stopTimers();
+  stopButton.attr("disabled", "disabled");
+  startButton.removeAttr("dosabled");
+}
+
 function onTimerTick() {
   if (seconds == 0) {
-    stopCountdown();
-    stopButton.attr("disabled", "disabled");
+    onFinish();
   } else {
     seconds--;
     updateTime();
@@ -67,7 +72,7 @@ function updateTime() {
   document.title = minutesLabel.text() + ":" + secondsLabel.text();
 }
 
-function stopCountdown() {
+function onFinish() {
   stopTimers();
   collonLabel.removeClass("js-hidden");
 }
