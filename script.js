@@ -13,7 +13,7 @@ window.addEventListener("load", function (e) {
   secondsLabel = $("#secondsLabel");
 
   startButton.bind("click", startCountdown);
-  stopButton.bind("click", stopCountdown);
+  stopButton.bind("click", onStopbuttonClicked);
   resetButton.bind("click", resetTime)
 
   $(".js-settime").bind("click", function (element) {
@@ -46,7 +46,8 @@ function startCountdown() {
 function onStopbuttonClicked() {
   stopTimers();
   stopButton.attr("disabled", "disabled");
-  startButton.removeAttr("dosabled");
+  startButton.removeAttr("disabled");
+  collonLabel.removeClass("js-hidden");
 }
 
 function onTimerTick() {
@@ -75,6 +76,7 @@ function updateTime() {
 function onFinish() {
   stopTimers();
   collonLabel.removeClass("js-hidden");
+  stopButton.attr("disabled", "disabled");
 }
 
 function stopTimers() {
