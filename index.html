@@ -41,7 +41,23 @@
     <button type="button" id="stopButton" class="btn btn-lg btn-secondary controller" disabled>ストップ</button>
     <button type="button" id="startButton" class="btn btn-lg btn-primary controller" disabled>スタート</button>
   </div>
+
+  <!--モーダル用-->
+  <div class="modal fade">
+    <div id="modalDialog" class="modal-dialog" data-dismiss="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <div class="modal-title">設定した時間が経過しました</div>
+        </div>
+        <div class="modal-body">
+          <p class="modal-message">このダイアログをクリックすると閉じます。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <audio src="./res/timer_end.mp3" id="endSound" type="audio/mpeg" loop></audio>
+
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
     crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"

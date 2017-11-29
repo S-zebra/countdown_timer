@@ -3,6 +3,8 @@ var timerObject, blinkTimer;
 
 var startButton, stopButton, resetButton, indicators;
 var minutesLabel, collonLabel, secondsLabel;
+var modalBox, modalDialog;
+var endSound;
 
 window.addEventListener("load", function (e) {
   startButton = $("#startButton");
@@ -11,10 +13,14 @@ window.addEventListener("load", function (e) {
   minutesLabel = $("#minutesLabel");
   collonLabel = $("#collonLabel");
   secondsLabel = $("#secondsLabel");
+  modalBox = $(".modal");
+  modalDialog = $("#modalDialog");
+  endSound = $("#endSound").get(0);
 
   startButton.bind("click", startCountdown);
   stopButton.bind("click", onStopbuttonClicked);
   resetButton.bind("click", resetTime)
+  modalDialog.bind("click", stopSound);
 
   $(".js-settime").bind("click", function (element) {
     setRemainTime(element);
@@ -77,11 +83,18 @@ function onFinish() {
   stopTimers();
   collonLabel.removeClass("js-hidden");
   stopButton.attr("disabled", "disabled");
+  modalBox.modal("show");
+  endSound.play();
 }
 
 function stopTimers() {
   clearInterval(timerObject);
   clearInterval(blinkTimer);
+}
+
+function stopSound() {
+  endSound.pause();
+
 }
 
 function resetTime() {

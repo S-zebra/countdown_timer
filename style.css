@@ -43,3 +43,11 @@
 .js-hidden {
 	visibility: hidden;
 }
+
+.modal-title {
+	font-size: 2em;
+}
+
+.modal-message {
+	font-size: 1.5em;
+}
