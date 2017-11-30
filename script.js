@@ -4,7 +4,7 @@ var timerObject, blinkTimer;
 var startButton, stopButton, resetButton, indicators;
 var minutesLabel, collonLabel, secondsLabel;
 var modalBox, modalDialog;
-var endSound;
+var endSound, endSoundSrc;
 
 window.addEventListener("load", function (e) {
   startButton = $("#startButton");
@@ -16,6 +16,7 @@ window.addEventListener("load", function (e) {
   modalBox = $(".modal");
   modalDialog = $("#modalDialog");
   endSound = $("#endSound").get(0);
+  endSoundSrc=endSound.src;
 
   startButton.bind("click", startCountdown);
   stopButton.bind("click", onStopbuttonClicked);
@@ -94,7 +95,7 @@ function stopTimers() {
 
 function stopSound() {
   endSound.pause();
-
+  endSound.src=endSoundSrc;
 }
 
 function resetTime() {
