@@ -5,6 +5,7 @@ var startButton, stopButton, resetButton, indicators;
 var minutesLabel, collonLabel, secondsLabel;
 var modalBox, modalDialog;
 var endSound, endSoundSrc;
+var title = "カウントダウン タイマー";
 
 window.addEventListener("load", function (e) {
   startButton = $("#startButton");
@@ -16,7 +17,7 @@ window.addEventListener("load", function (e) {
   modalBox = $(".modal");
   modalDialog = $("#modalDialog");
   endSound = $("#endSound").get(0);
-  endSoundSrc=endSound.src;
+  endSoundSrc = endSound.src;
 
   startButton.bind("click", startCountdown);
   stopButton.bind("click", onStopbuttonClicked);
@@ -86,6 +87,7 @@ function onFinish() {
   stopButton.attr("disabled", "disabled");
   modalBox.modal("show");
   endSound.play();
+  document.title = title;
 }
 
 function stopTimers() {
@@ -95,7 +97,7 @@ function stopTimers() {
 
 function stopSound() {
   endSound.pause();
-  endSound.src=endSoundSrc;
+  endSound.src = endSoundSrc;
 }
 
 function resetTime() {
